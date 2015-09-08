@@ -5,12 +5,12 @@
 %define 	module	oauthlib
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Name:		python-%{module}
-Version:	0.5.1
+Version:	1.0.3
 Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
-# Source0-md5:	45ebbd43c9430bb404c9aa0979d949f2
+# Source0-md5:	02772867bf246b3b37f4ed22786c41f5
 URL:		https://pypi.python.org/pypi/oauthlib
 %if %{with python2}
 BuildRequires:	python-distribute
