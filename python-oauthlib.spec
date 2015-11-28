@@ -48,11 +48,11 @@ support for very little effort.
 
 %build
 %if %{with python2}
-%{__python} setup.py build -b py2
+%py_build -b py2
 %endif
 
 %if %{with python3}
-%{__python3} setup.py build -b py3
+%py3_build -b py3
 %endif
 
 %install
