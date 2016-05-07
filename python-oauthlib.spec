@@ -2,11 +2,11 @@
 %bcond_without  python2         # build python 2 module
 %bcond_without  python3         # build python 3 module
 #
-%define 	module	oauthlib
+%define		module	oauthlib
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Name:		python-%{module}
 Version:	1.0.3
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
@@ -48,38 +48,26 @@ support for very little effort.
 
 %build
 %if %{with python2}
-%py_build -b py2
+%py_build
 %endif
 
 %if %{with python3}
-%py3_build -b py3
+%py3_build
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%{__python} setup.py \
-	build -b py2 \
-	install \
-	--skip-build \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_postclean
 %endif
 
 %if %{with python3}
-%{__python3} setup.py  \
-	build -b py3 \
-	install \
-	--skip-build \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py3_install
 %endif
-
-%{__rm} -rf $RPM_BUILD_ROOT{%{py_sitescriptdir},%{py3_sitescriptdir}}/%{module}/{cacert.pem,packages}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
