@@ -5,19 +5,19 @@
 %define		module	oauthlib
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Name:		python-%{module}
-Version:	1.0.3
-Release:	5
+Version:	2.0.7
+Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
-# Source0-md5:	02772867bf246b3b37f4ed22786c41f5
+# Source0-md5:	1fca21cda1c106ff4c5110cc355dca22
 URL:		https://pypi.python.org/pypi/oauthlib
 %if %{with python2}
-BuildRequires:	python-distribute
+BuildRequires:	python-setuptools
 BuildRequires:	python-modules >= 1:2.6
 %endif
 %if %{with python3}
-BuildRequires:	python3-distribute
+BuildRequires:	python3-setuptools
 BuildRequires:	python3-modules >= 3.2
 %endif
 BuildRequires:	rpm-pythonprov
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc README.rst
+%doc README.rst CHANGELOG.rst
 %{py_sitescriptdir}/%{module}
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-oauthlib
 %defattr(644,root,root,755)
-%doc README.rst
+%doc README.rst CHANGELOG.rst
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif
