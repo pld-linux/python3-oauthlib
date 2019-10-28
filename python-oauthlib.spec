@@ -6,7 +6,7 @@
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Name:		python-%{module}
 Version:	2.0.7
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	https://pypi.python.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
