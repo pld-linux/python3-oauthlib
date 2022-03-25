@@ -9,7 +9,7 @@ Summary:	A generic, spec-compliant, thorough implementation of the OAuth request
 Summary(pl.UTF-8):	Ogólna, zgodna ze specyfikacją, pełna implementacja logiki podpisywania żądań OAuth
 Name:		python-%{module}
 Version:	3.1.0
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/oauthlib/
