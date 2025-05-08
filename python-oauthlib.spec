@@ -9,7 +9,7 @@ Summary:	A generic, spec-compliant, thorough implementation of the OAuth request
 Summary(pl.UTF-8):	Ogólna, zgodna ze specyfikacją, pełna implementacja logiki podpisywania żądań OAuth
 Name:		python-%{module}
 Version:	3.1.0
-Release:	7
+Release:	8
 License:	BSD
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/oauthlib/
@@ -85,7 +85,10 @@ uzyskać obsługę OAuth niskim kosztem.
 %py_build
 
 %if %{with tests}
-nosetests-%{py_ver} tests
+# use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS= \
+%{__python} -m pytest tests
 %endif
 %endif
 
@@ -93,7 +96,10 @@ nosetests-%{py_ver} tests
 %py3_build
 
 %if %{with tests}
-nosetests-%{py3_ver} tests
+# use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+PYTEST_PLUGINS= \
+%{__python3} -m pytest tests
 %endif
 %endif
 
