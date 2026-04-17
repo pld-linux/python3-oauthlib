@@ -6,24 +6,26 @@
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Summary(pl.UTF-8):	Ogólna, zgodna ze specyfikacją, pełna implementacja logiki podpisywania żądań OAuth
 Name:		python3-%{module}
-Version:	3.2.2
+Version:	3.3.1
 Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/oauthlib/
 Source0:	https://files.pythonhosted.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
-# Source0-md5:	2f7b898cc1af8c1409cc329e8843ea8f
+# Source0-md5:	856bc51662afb26ac58b1d7742606b2e
 URL:		https://pypi.org/project/oauthlib/
-BuildRequires:	python3-modules >= 1:3.4
+BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-blinker
-BuildRequires:	python3-cryptography
-BuildRequires:	python3-nose
-BuildRequires:	python3-pyjwt >= 1.0.0
+BuildRequires:	python3-blinker >= 1.4.0
+BuildRequires:	python3-cryptography >= 3.0.0
+BuildRequires:	python3-pyjwt >= 2.0.0
+BuildRequires:	python3-pyjwt < 3
+BuildRequires:	python3-pytest
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,9 +50,7 @@ uzyskać obsługę OAuth niskim kosztem.
 %py3_build
 
 %if %{with tests}
-# use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-PYTEST_PLUGINS= \
 %{__python3} -m pytest tests
 %endif
 
