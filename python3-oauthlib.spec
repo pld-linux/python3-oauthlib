@@ -6,15 +6,15 @@
 Summary:	A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
 Summary(pl.UTF-8):	Ogólna, zgodna ze specyfikacją, pełna implementacja logiki podpisywania żądań OAuth
 Name:		python3-%{module}
-Version:	3.3.1
+Version:	4.0.1
 Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/oauthlib/
 Source0:	https://files.pythonhosted.org/packages/source/o/oauthlib/%{module}-%{version}.tar.gz
-# Source0-md5:	856bc51662afb26ac58b1d7742606b2e
+# Source0-md5:	52700d6336f3766bd05d98b3696bec88
 URL:		https://pypi.org/project/oauthlib/
-BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-modules >= 1:3.9
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-blinker >= 1.4.0
@@ -25,7 +25,7 @@ BuildRequires:	python3-pytest
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.8
+Requires:	python3-modules >= 1:3.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
